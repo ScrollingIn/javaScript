@@ -26,74 +26,74 @@
 <div id="slideholder2"></div>
 <div id="slideholder3"></div>
 <script>
-    var plaatjes = [1,2,3];
+    var images = [1,2,3];
 
-    var teller = 1;
-    console.log(teller);
+    var counter = 1;
+    console.log(counter);
 
     var slideholder1 = document.getElementById("slideholder1");
-    slideholder1.style.backgroundImage = "url('ogen1.jpg')";
+    slideholder1.style.backgroundImage = "url('eyes1.jpg')";
 
     slideholder1.addEventListener("click", function(){
-        slideholder1.style.backgroundImage = "url('ogen" + getAap() + ".jpg')";
+        slideholder1.style.backgroundImage = "url('eyes" + getPerson() + ".jpg')";
     });
 
-    function getAap(){
-        if(teller == plaatjes.length){
-            teller = 1;
+    function getPerson(){
+        if(counter == images.length){
+            counter = 1;
         } else {
-            teller++
+            counter++
         }
 
-        console.log(teller);
-        return teller;
+        console.log(counter);
+        return counter;
     }
 
 
-    var plaatjes = [1,2,3];
+    var images = [1,2,3];
 
-    var teller = 1;
-    console.log(teller);
+    var counter = 1;
+    console.log(counter);
 
     var slideholder2 = document.getElementById("slideholder2");
-    slideholder2.style.backgroundImage = "url('neus1.jpg')";
+    slideholder2.style.backgroundImage = "url('nose1.jpg')";
 
     slideholder2.addEventListener("click", function(){
-        slideholder2.style.backgroundImage = "url('neus" + getAap() + ".jpg')";
+        slideholder2.style.backgroundImage = "url('nose" + getPerson() + ".jpg')";
     });
 
-    function getAap(){
-        if(teller == plaatjes.length){
-            teller = 1;
+    function getPerson(){
+        if(counter == images.length){
+            counter = 1;
         } else {
-            teller++
+            counter++
         }
 
-        console.log(teller);
-        return teller;
+        console.log(counter);
+        return counter;
     }
 
-    var plaatjes = [1,2,3];
+    var images = [1,2,3];
 
-    var teller = 1;
-    console.log(teller);
+    var counter = 1;
+    console.log(counter);
 
     var slideholder3 = document.getElementById("slideholder3");
-    slideholder3.style.backgroundImage = "url('mond1.jpg')";
+    slideholder3.style.backgroundImage = "url('mouth1.jpg')";
 
     slideholder3.addEventListener("click", function(){
-        slideholder3.style.backgroundImage = "url('mond" + getAap() + ".jpg')";
+        slideholder3.style.backgroundImage = "url('mouth" + getPerson() + ".jpg')";
     });
 
-    function getAap(){
-        if(teller == plaatjes.length){
-            teller = 1;
+    function getPerson(){
+        if(counter == images.length){
+            counter = 1;
         } else {
-            teller++
+            counter++
         }
 
-        console.log(teller);
-        return teller;
+        console.log(counter);
+        return counter;
     }
 </script>
 </body>
