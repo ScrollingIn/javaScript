@@ -1,21 +1,4 @@
-let A = document.createElement(img);
-A.src = 'kitten1.jpg';
-let B = document.createElement(img);
-B.src = 'kitten2.jpg';
-let C = document.createElement(img);
-C.src = 'kitten3.jpg';
-let D = document.createElement(img);
-D.src = 'kitten4.jpg';
-let E = document.createElement(img);
-E.src = 'kitten5.jpg';
-let F = document.createElement(img);
-F.src = 'kitten6.jpg';
-let G = document.createElement(img);
-G.src = 'kitten7.jpg';
-let H = document.createElement(img);
-H.src = 'kitten8.jpg';
-let I = document.createElement(img);
-I.src = 'kitten9.jpg';
+let A = "1", B = "2", C = "3", D = "4", E = "5", F = "6", G = "7", H = "8", I = "9";
 var memory_array = [A, A, B, B, C, C, D, D, E, E, F, F, G, G, H, H, I, I];
 var memory_values = [];
 var memory_tile_ids = [];
@@ -29,19 +12,24 @@ Array.prototype.memory_tile_shuffle = function(){
         this[i] = temp;
     }
 }
-function newBoard(){
+
+function newBoard() {
     tiles_flipped = 0;
     var output = '';
     memory_array.memory_tile_shuffle();
-    for(var i = 0; i < memory_array.length; i++){
-        output += '<div id="tile_'+i+'" onclick="memoryFlipTile(this,\''+memory_array[i]+'\')"></div>';
+    for (var i = 0; i < memory_array.length; i++) {
+        output += '<div id="tile_' + i + '" onclick="memoryFlipTile(this,\'kitten' + memory_array[i] + '.jpg\')"></div>';
     }
     document.getElementById('memory_board').innerHTML = output;
 }
+
 function memoryFlipTile(tile,val){
     if(tile.innerHTML == "" && memory_values.length < 2){
         tile.style.background = '#FFF';
-        tile.innerHTML = val;
+        tile.style.background = 'url(' + val + ') no-repeat';
+        tile.style.backgroundSize = 'contain';
+
+        //tile.innerHTML = val;
         if(memory_values.length == 0){
             memory_values.push(val);
             memory_tile_ids.push(tile.id);
@@ -55,7 +43,7 @@ function memoryFlipTile(tile,val){
                 memory_tile_ids = [];
                 // Check to see if the whole board is cleared
                 if(tiles_flipped == memory_array.length){
-                    alert("Board cleared... generating new board");
+                    // alert("Board cleared... generating new board");
                     document.getElementById('memory_board').innerHTML = "";
                     newBoard();
                 }
