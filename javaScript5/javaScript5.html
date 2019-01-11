@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kitten Chooser</title>
+    <style>
+        body{
+            font-family: 'Copse', Serif;
+            text-align: center;
+        }
+
+        div.picture-holder {
+            box-sizing: border-box;
+            height: 450px;
+            width: 300px;
+            float: left;
+            background-color: red;
+            border: solid 1px black;
+        }
+
+        div.favorite {
+            width: 300px;
+            height: 150px;
+            background-color: coral;
+            background-image: none;
+            background-repeat: no-repeat;
+            background-position: center;
+
+        }
+
+        #pics {
+            width: 900px;
+            height: 1350px;
+            border: solid 1px black;
+            font-size: 0px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Kitten Chooser!</h1>
+    <h3>Choose your favorite kitten!</h3>
+    <div id="pics">
+
+    </div>
+</body>
+<script>
+    pics = document.getElementById('pics');
+    createPicsHolders();
+    createKittenImages()
+
+    function createPicsHolders(){
+        for (let i = 0; i < 9; i++) {
+            pictureHolder = document.createElement('div');
+            pictureHolder.className = 'picture-holder';
+            pictureHolder.id = "picture-holder" + i;
+            pics.appendChild(pictureHolder);
+        }
+    }
+
+    function createKittenImages() {
+        pictureHolders = document.getElementsByClassName('picture-holder');
+        for (let i = 0; i < pictureHolders.length; i++) {
+            favorite = document.createElement('div')
+            favorite.className = 'favorite';
+            favorite.id = 'favorite_' + (i + 1);
+
+            kittenImage = document.createElement('img');
+            kittenImage.src = 'kitten' + (i + 1) + '.jpg';
+            kittenImage.id = (i + 1);
+            kittenImage.addEventListener('click', function() {
+                makeFavorite(this.id);
+            });
+
+            pictureHolders[i].appendChild(favorite);
+            pictureHolders[i].appendChild(kittenImage);
+        }
+    }
+
+    function makeFavorite(id) {
+        console.log("This is my Favorite!" + id);
+        notsofavorite = document.getElementsByClassName("favorite");
+
+        for (let i = 0; i < notsofavorite.length; i++) {
+            notsofavorite[i].style.backgroundImage = "none";
+        }
+
+        favorite = document.getElementById('favorite_' + id);
+        favorite.style.backgroundImage = "url('heart.png')";
+
+    }
+
+
+</script>
+</html>
